@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>将軍ラッシュ ～歴代将軍をぶっ倒せ～</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- タイトル画面 -->
+    <section id="title-screen" class="screen active">
+      <div class="title-seal">将</div>
+      <h1 class="title-logo">将軍ラッシュ</h1>
+      <p class="title-sub">― 歴代将軍をぶっ倒せ ―</p>
+      <p class="title-lead">
+        あなたは「仮の将軍」。<br />
+        時代を進むごとに現れる歴代の将軍に挑み、<br />
+        歴史クイズで打ち倒しながら、日本の歴史を駆け抜けろ。
+      </p>
+      <button id="start-btn" class="brush-btn">いざ、出陣</button>
+      <p class="title-foot">鎌倉 → 室町 → 江戸 → 幕末</p>
+    </section>
+
+    <!-- バトル画面 -->
+    <section id="battle-screen" class="screen">
+      <!-- 時代の流れ -->
+      <div id="era-timeline" class="era-timeline"></div>
+
+      <!-- プレイヤー情報 -->
+      <div class="player-bar">
+        <div class="hp-block">
+          <div class="hp-name">あなた（仮の将軍）</div>
+          <div class="hp-track"><div id="player-hp-fill" class="hp-fill player"></div></div>
+          <div id="player-hp-text" class="hp-text">体力 100 / 100</div>
+        </div>
+      </div>
+
+      <!-- ボス（敵将軍） -->
+      <div class="boss-stage">
+        <div id="boss-face" class="boss-face">🏯</div>
+        <div class="boss-info">
+          <div id="boss-era" class="boss-era">鎌倉時代</div>
+          <div id="boss-name" class="boss-name">源頼朝</div>
+          <div id="boss-yomi" class="boss-yomi">みなもとの よりとも</div>
+          <div id="boss-title" class="boss-title">鎌倉幕府 初代将軍</div>
+          <div class="hp-track boss"><div id="boss-hp-fill" class="hp-fill boss"></div></div>
+        </div>
+      </div>
+
+      <!-- セリフ／問題 -->
+      <div class="dialog-card">
+        <div id="dialog-speaker" class="dialog-speaker">敵将</div>
+        <div id="dialog-text" class="dialog-text"></div>
+      </div>
+
+      <!-- 選択肢 -->
+      <div id="choices" class="choices"></div>
+
+      <!-- 解説（正解後など） -->
+      <div id="explain-card" class="explain-card hidden">
+        <div id="explain-text" class="explain-text"></div>
+        <button id="next-btn" class="brush-btn small">つづける</button>
+      </div>
+    </section>
+
+    <!-- 撃破（歴史メモ）画面 -->
+    <section id="defeat-screen" class="screen">
+      <div class="memo-seal">討</div>
+      <h2 id="defeat-title" class="defeat-title">源頼朝 を討ち取った！</h2>
+      <div class="memo-card">
+        <div class="memo-label">📜 歴史メモ</div>
+        <div id="memo-text" class="memo-text"></div>
+      </div>
+      <button id="advance-btn" class="brush-btn">次の時代へ進む</button>
+    </section>
+
+    <!-- ゲームオーバー画面 -->
+    <section id="gameover-screen" class="screen">
+      <h2 class="gameover-title">無念……</h2>
+      <p id="gameover-text" class="gameover-text"></p>
+      <button id="retry-btn" class="brush-btn">この将軍にもう一度挑む</button>
+    </section>
+
+    <!-- 全クリ画面 -->
+    <section id="clear-screen" class="screen">
+      <div class="clear-seal">天下</div>
+      <h2 class="clear-title">大政奉還 ―― 幕府の時代、ここに終わる</h2>
+      <p class="clear-text">
+        鎌倉・室町・江戸。<br />
+        700年近く続いた武士の世を、あなたは駆け抜けた。<br />
+        歴代の将軍たちを倒し、ついに時代は明治へ。
+      </p>
+      <div id="clear-stats" class="clear-stats"></div>
+      <button id="replay-btn" class="brush-btn">もう一度、歴史を駆ける</button>
+    </section>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
